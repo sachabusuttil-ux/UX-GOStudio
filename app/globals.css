@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --background: #161817;
+  --surface: #1e201f;
+  --surface-2: #262927;
+  --foreground: #f4f8f9;
+  --muted: #a3a9a7;
+  --muted-foreground: #797f7d;
+  --card: #1e201f;
+  --border: rgba(244, 248, 249, 0.08);
+  --pill: rgba(244, 248, 249, 0.06);
+  --footer: #161817;
+  --footer-foreground: #f4f8f9;
+  --footer-muted: #797f7d;
+  --accent: #fe8163;
+  --accent-foreground: #161817;
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --background: #f4f8f9;
+  --surface: #e8eced;
+  --surface-2: #dee3e5;
+  --foreground: #161817;
+  --muted: #61645f;
+  --muted-foreground: #93968f;
+  --card: #f4f8f9;
+  --border: rgba(22, 24, 23, 0.08);
+  --pill: rgba(22, 24, 23, 0.05);
+  --shadow-soft: 0 20px 60px rgba(22, 24, 23, 0.12);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-pill: var(--pill);
+  --color-footer: var(--footer);
+  --color-footer-foreground: var(--footer-foreground);
+  --color-footer-muted: var(--footer-muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --radius-card: var(--radius-card);
+  --font-sans: var(--font-montserrat);
+  --font-heading: var(--font-aleo);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
