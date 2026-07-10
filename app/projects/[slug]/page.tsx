@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { getProjectBySlug, projects } from "@/lib/data/projects";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,41 @@ import ProjectGalleryCarousel from "@/components/ui/ProjectGalleryCarousel";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  if (!project) {
+    return {};
+  }
+
+  const socialTitle = `${project.title} — ${project.tagline}`;
+
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: {
+      canonical: `/projects/${project.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: socialTitle,
+      description: project.description,
+      images: project.coverImage ? [{ url: project.coverImage }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: socialTitle,
+      description: project.description,
+      images: project.coverImage ? [project.coverImage] : undefined,
+    },
+  };
 }
 
 export default async function ProjectPage({
