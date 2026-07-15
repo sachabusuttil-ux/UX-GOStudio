@@ -26,8 +26,7 @@ export default function ProjectsGrid() {
             Découvrir nos projets
           </h2>
           <p className="mx-auto mt-3 max-w-md text-muted">
-            Quelques projets sélectionnés. Remplace ces exemples par tes
-            propres études de cas et images.
+            Quelques projets sélectionnés.
           </p>
         </div>
 

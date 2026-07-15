@@ -117,8 +117,7 @@ export default function Hero() {
 
       <p className="hero-fade max-w-xl text-lg text-muted">
         Nous concevons et développons des produits numériques de bout en bout
-        — des premiers concepts aux interfaces animées et abouties. Remplace
-        ce texte par ta propre présentation.
+        — des premiers concepts aux interfaces animées et abouties.
       </p>
 
       <div className="hero-fade flex flex-col items-center gap-3 sm:flex-row">
@@ -136,7 +135,7 @@ export default function Hero() {
             href="#contact"
             className="font-heading inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-bold italic text-foreground transition-colors hover:bg-pill"
           >
-            Me contacter
+            Nous contacter
             <ArrowRight size={14} />
           </Link>
         </Magnetic>

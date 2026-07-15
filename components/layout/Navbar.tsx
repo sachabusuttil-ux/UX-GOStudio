@@ -74,7 +74,7 @@ export default function Navbar() {
             href="/#contact"
             className="font-heading hidden whitespace-nowrap rounded-full bg-accent px-5 py-3 text-sm font-bold italic text-accent-foreground transition-opacity hover:opacity-90 md:inline-block"
           >
-            Me contacter
+            Nous contacter
           </Link>
 
           <ThemeToggle className="md:hidden" />
